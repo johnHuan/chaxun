@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作角色表</title>
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css">
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>当前位置：数据库管理 >>操作管理员表</nav>
+<div class="container">
+<hgroup>
+    <h4> <span class="text-primary ">管理员表的查看</span></h4>
+</hgroup>
+
+    <table class="table table-condensed table-hover table-bordered ">
+        <tr>
+            <th>{$fields[0]}</th>
+            <th>{$fields[1]}</th>
+            <th>{$fields[2]}</th>
+            <th>{$fields[3]}</th>
+            <th>{$fields[4]}</th>
+            <th>{$fields[5]}</th>
+            <th>{$fields[6]}</th>
+            <td nowrap>操作</td>
+        </tr>
+        <foreach name="data" item="list" >
+            <tr>
+                <td>{$list.admin_id}</td>
+                <td>{$list.admin_user}</td>
+                <td>{$list.admin_tel}</td>
+                <td>{$list.admin_name}</td>
+                <td style="word-break:break-all;">{$list.admin_pwd}</td>
+                <td>{$list.admin_role_id}</td>
+                <td>{$list.admin_email}</td >
+                <td><a href="__CONTROLLER__/manageredit/?admin_id={$list.admin_id}">修改</a></td>
+            </tr>
+        </foreach>
+    </table>
+</div>
+</body>
+</html>

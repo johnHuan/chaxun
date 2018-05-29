@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置倒计时时间</title>
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css">
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>当前位置：前台管理 >>删除数据编辑</nav>
+<hgroup>
+    <h3> <span class="text-primary ">已删除的未开奖号码单个编辑【回收站】</span></h3>
+    <h4 class="text-success">对号码的适当调整，再写入数据库等待下一次开奖【数据恢复】</h4>
+</hgroup>
+<form role="form" action="__SELF__" method="post">
+    <div class="table-responsive">
+    <table class="table table-condensed table-hover table-bordered " style="width: 80%">
+        <tr>
+            <td>{$fields[0]}</td>
+            <td><input readonly class="inline-input" type="text" value="{$codedata[jid]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[1]}</td>
+            <td><input name="id_date" class="inline-input" type="text" value="{$codedata[id_date]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[2]}</td>
+            <td><input name="journer_num" class="inline-input" type="text" value="{$codedata[journer_num]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[3]}</td>
+            <td><input name="first_code" class="inline-input" type="text" value="{$codedata[first_code]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[4]}</td>
+            <td><input name="second_code" class="inline-input" type="text" value="{$codedata[second_code]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[5]}</td>
+            <td><input name="third_code" class="inline-input" type="text" value="{$codedata[third_code]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[6]}</td>
+            <td><input name="fourth_code" class="inline-input" type="text" value="{$codedata[fourth_code]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[7]}</td>
+            <td><input name="fifth_code" class="inline-input" type="text" value="{$codedata[fifth_code]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[8]}</td>
+            <td><input name="status" class="inline-input" type="text" value="{$codedata[status]}" data-toggle="tooltip" data-placement="right" title="1:目前尚未开奖 | 0:已经开奖"></td>
+
+        </tr>
+        <tr>
+            <td>{$fields[9]}</td>
+            <td><input name="avaliable" class="inline-input" type="text" value="1" data-toggle="tooltip"  data-placement="right" title="要想恢复这里必须为：1"></td>
+        </tr>
+
+    </table>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="保存并恢复" >
+    </div>
+</form>
+
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
+</body>
+</html>
+

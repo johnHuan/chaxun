@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单个数据修改</title>
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css">
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>当前位置：数据管理  >>单个考场数据修改</nav>
+<hgroup>
+    <h3> <span class="text-primary ">单个考场数据修改</span></h3>
+</hgroup>
+<form role="form" action="__SELF__" method="post">
+    <div class="table-responsive">
+    <table class="table table-condensed table-hover table-bordered " style="width: 80%">
+        <tr>
+            <td>{$fields[0]}</td>
+            <td><input readonly class="inline-input" type="text" value="{$result[kid]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[1]}</td>
+            <td><input name="stuNum" class="inline-input" type="text" value="{$result[stuNum]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[2]}</td>
+            <td><input name="stuName" class="inline-input" type="text" value="{$result[stuName]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[3]}</td>
+            <td><input name="_class" class="inline-input" type="text" value="{$result[_class]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[4]}</td>
+            <td><input name="addr" class="inline-input" type="text" value="{$result[addr]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[5]}</td>
+            <td><input name="_list" class="inline-input" type="text" value="{$result[_list]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[6]}</td>
+            <td><input name="num" class="inline-input" type="text" value="{$result[num]}"></td>
+        </tr>
+        <tr>
+            <td>{$fields[7]}</td>
+            <td><input name="date" class="inline-input" type="text" value="{$result[date]}"></td>
+        </tr>
+    </table>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="提 交" >
+    </div>
+</form>
+
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
+</body>
+</html>
+

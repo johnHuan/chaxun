@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置倒计时时间</title>
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css">
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-select.min.css">
+    <!--<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap-select.js"></script>
+</head>
+<body>
+<nav>当前位置：前台管理 >>待开奖号码批量编辑</nav>
+
+<div class="container">
+    <div class="page">
+        <ul class="pagination">
+            {$page}
+        </ul>
+    </div>
+    <div class="showlist">
+        <table class="table table-hover">
+            <tr>
+                <td>{$fields[1]} & {$fields[2]}</td>
+                <td>{$fields[3]}</td>
+                <td>{$fields[4]}</td>
+                <td>{$fields[5]}</td>
+                <td>{$fields[6]}</td>
+                <td>{$fields[7]}</td>
+                <td><input type="checkbox" value="反选" class="btn xsChk" name="chk"></td>
+                <td>
+                    <select class="selectpicker" data-width="auto" name="" id="">
+                        <option  value="multedit">编辑</option>
+                        <option value="multdelete">删除</option>
+
+                    </select>
+                </td>
+            </tr>
+            <foreach name="list" item="list" >
+                <tr>
+                    <td>{$list.id_date}-{$list.journer_num}</td>
+                    <td>{$list.first_code}</td>
+                    <td>{$list.second_code}</td>
+                    <td>{$list.third_code}</td>
+                    <td>{$list.fourth_code}</td>
+                    <td>{$list.fifth_code}</td>
+                    <td colspan="2"><input type="checkbox" name="chk" value="{$list.jid}"></td>
+                </tr>
+            </foreach>
+        </table>
+    </div>
+    <div class="page">
+        <ul class="pagination">
+            {$page}
+        </ul>
+    </div>
+</div>
+<script>
+    $('.selectpicker').selectpicker({
+        style: 'btn-info',
+        size: 4
+    });
+
+
+    $(document).ready(function () {
+        var xsChk = "xsChk";//定义的样式
+        var xsChkAll = "input[type='checkbox'][class='" + xsChk + "'][name]";//所有定义此样式的checkbox
+
+        $(xsChkAll).each(function () {
+            var name = $(this).attr("name");
+            name = "input[type='checkbox'][class!='" + xsChk + "'][name='" + name + "']";//此全选框下面的子checkbox
+            $(this).click(function () {
+                $(name).attr("checked", $(this)[0].checked);
+            });
+            var xschk = $(this);
+            $(name).click(function () {
+                var IAll = $(name).length; //此子项目下所有checkbox的个数
+                var IChk = $(name + ":checked").length; //此子项目下所有勾选checkbox的个数
+                var isAllChecked = true; //是否是全选
+                if (IAll != IChk) {
+                    isAllChecked = false;
+                }
+                $(xschk).attr("checked", isAllChecked);
+            });
+
+        });
+    });
+
+
+
+</script>
+</body>
+</html>
+

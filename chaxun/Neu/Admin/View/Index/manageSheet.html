@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>直接操作数据表</title>
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/fileinput.css" media="all" />
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-success">管理员直接操作数据表</h3>
+        <h4 class="text-danger">数据宝贵请谨慎操作  <i>此操作不可逆，数据删除后将无法找回</i></h4>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>操作 <mark><b>宿舍</b></mark>数据表</th>
+                <th>操作 <mark><b>考场</b></mark>数据表</th>
+            </tr>
+            <tr>
+                <td><a href="__CONTROLLER__/deleteSAll" onclick="if (confirm('确定要清空宿舍数据表吗？')) return true; else return false;">清空宿舍表</a></td>
+                <td><a href="__CONTROLLER__/deleteKAll" onclick="if (confirm('确定要清空考场数据表吗？')) return true; else return false;">清空考场表</a></td>
+            </tr>
+            <tr>
+                <td>删除编号（sid）<br>从：
+                    <input id="lower1" class="inline-input"  type="text" style="width:40px;">到：
+                    <input id="upper1" type="text" class="inline-input" style="width:40px;"><br><br><br><br>
+                    <div class="error1 file-error-message" style="margin-top: 10px; display: none;">
+                        <span class="close1 close kv-error-close">×</span>
+                        <ul>
+                            <li class="errorTip"></li>
+                        </ul>
+                    </div>
+                    <button class="delS btn btn-default" >删除</button>
+                </td>
+                <td>删除编号（kid）<br>从：
+                    <input id="lower2" class="inline-input"  type="text" style="width:40px;">到：
+                    <input id="upper2" type="text" class="inline-input" style="width:40px;"><br><br><br><br>
+                    <div class="error2 file-error-message" style="display: none;">
+                        <span class="close2 kv-error-close close">×</span>
+                        <ul>
+                            <li class="errorTip2">123</li>
+                        </ul>
+                    </div>
+                    <button class="delK btn btn-default" >删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput_locale_fr.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput_locale_es.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/plugins/canvas-to-blob.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/plugins/sortable.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/plugins/purify.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/themes/fa/theme.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/locales/LANG.js"></script>
+    <script>
+        $(function(){
+            $('span.close1').on('click', function(){
+                $('div.error1').css('display', 'none');
+            });
+            $('span.close2').on('click', function(){
+                $('div.error2').css('display', 'none');
+            });
+            $('button.delS').on('click', function(event){
+                event.preventDefault();
+                lower1 = $('input#lower1').val();
+                upper1 = $('input#upper1').val();
+                if (lower1 == '' && upper1 == ''){
+                    $('input#lower1').focus();
+                    return false;
+                } else{
+                    $.ajax({
+                        type: 'POST',
+                        url: '__CONTROLLER__/deleteSsome',
+                        data: {
+                            lower1: lower1,
+                            upper1: upper1,
+                        },
+                        success: function(res){
+                            if(res == 2){
+                                $('div.error1').css('display', 'block');
+                                $('li.errorTip').text('删除失败');
+                            } else{
+                                $('div.error1').css('display', 'block');
+                                $('li.errorTip').text('删除成功');
+                            }
+                        }
+                    });
+                }
+
+            });
+
+            $('button.delK').on('click', function(event){
+                event.preventDefault();
+                lower2 = $('input#lower2').val();
+                upper2 = $('input#upper2').val();
+                if (lower2 == '' && upper2 == ''){
+                    $('input#lower2').focus();
+                    return false;
+                } else{
+                    $.ajax({
+                        type: 'POST',
+                        url: '__CONTROLLER__/deleteKsome',
+                        data: {
+                            lower2: lower2,
+                            upper2: upper2,
+                        },
+                        success: function(res){
+                            if(res == 2){
+                                $('div.error2').css('display', 'block');
+                                $('li.errorTip2').text('删除失败');
+                            } else{
+                                $('div.error2').css('display', 'block');
+                                $('li.errorTip2').text('删除成功');
+                            }
+                        }
+                    });
+                }
+
+            });
+
+        });
+    </script>
+</body>
+</html>

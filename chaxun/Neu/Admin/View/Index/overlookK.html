@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看考场信息</title>
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/fileinput.css" media="all" />
+
+</head>
+<body>
+<nav>当前位置：数据管理 >>查看考场数据</nav>
+<div class="container">
+    <div class="page small">
+        <ul class="pagination small">
+            {$page}
+        </ul>
+    </div>
+    <div class="showlist">
+        <table class="table table-hover">
+           <tr>
+               <td>{$fields[0]}</td>
+               <td>{$fields[1]}</td>
+               <td>{$fields[2]}</td>
+               <td>{$fields[3]}</td>
+               <td>{$fields[4]}</td>
+               <td>{$fields[5]}</td>
+               <td>{$fields[6]}</td>
+               <td>{$fields[7]}</td>
+               <td>操作</td>
+           </tr>
+            <foreach name="list" item="list" >
+                <tr>
+                    <td>{$list.kid}</td>
+                    <td>{$list.stuNum}</td>
+                    <td>{$list.stuName}</td>
+                    <td>{$list._class}</td>
+                    <td>{$list.addr}</td>
+                    <td>{$list._list}</td>
+                    <td>{$list.num}</td>
+                    <td>{$list.date}</td>
+                    <td><a href="__CONTROLLER__/edit?kid={$list.kid}">编辑</a> | <a href="__CONTROLLER__/deleteK?kid={$list.kid}" onclick="if (confirm('确定要删除吗？')) return true; else return false;">删除</a></td>
+                </tr>
+            </foreach>
+        </table>
+    </div>
+    <div class="page small">
+        <ul class="pagination small">
+            {$page}
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput_locale_fr.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput_locale_es.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/plugins/canvas-to-blob.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/plugins/sortable.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/plugins/purify.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/fileinput.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/themes/fa/theme.js"></script>
+<script type="text/javascript" src="__PUBLIC__/bootstrapfileinput/js/locales/LANG.js"></script>
+
+</body>
+</html>

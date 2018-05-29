@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作权限表</title>
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css">
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>当前位置：数据库管理 >>操作权限表</nav>
+<hgroup>
+    <h4> <span class="text-primary ">权限表的操作</span></h4>
+</hgroup>
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <td>{$fields[0]}</td>
+            <td>{$fields[1]}</td>
+            <td>{$fields[2]}</td>
+            <td>{$fields[3]}</td>
+            <td>{$fields[4]}</td>
+            <td>{$fields[5]}</td>
+            <td>{$fields[6]}</td>
+            <td>操作</td>
+        </tr>
+        <foreach name="data" item="list" >
+            <tr>
+                <td>{$list.auth_id}</td>
+                <td>{$list.auth_name}</td>
+                <td>{$list.auth_pid}</td>
+                <td>{$list.auth_c}</td>
+                <td>{$list.auth_a}</td>
+                <td>{$list.auth_path}</td>
+                <td>{$list.auth_level}</td>
+                <td><a href="__CONTROLLER__/authedit/?auth_id={$list.auth_id}">修改</a></td>
+            </tr>
+        </foreach>
+    </table>
+</div>
+</body>
+</html>
+

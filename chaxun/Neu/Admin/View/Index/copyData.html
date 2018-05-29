@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置倒计时时间</title>
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-responsive.css">
+    <link rel="stylesheet"  media="screen" type="text/css" href="__PUBLIC__/css/bootstrap/bootstrap-overrides.css">
+    <link rel="stylesheet"  media="screen" tpye="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>当前位置：前台管理 >>批量复制数据</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <!--左边-->
+        <div class="col-sm-5">
+            <div class="panel panel-info">
+                <div class="panel-heading">要求说明</div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <div id="w0" class="grid-view">
+                            <div class="empty">不允许有标点符号，空格无所谓，且只能是整型数字</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--左边end-->
+        <!--右边start-->
+        <div class="col-sm-5">
+            <div class="panel panel-info">
+                <div class="panel-heading"> <b>号码</b></div>
+                <div class="panel-body">
+                    <form class="form-horizontal" action="__SELF__" method="post">
+                        <div class="form-group field-loginform-password required">
+                            <div class="col-sm-12 ">
+                                <textarea rows="15" class="form-control" name="codeData" placeholder="code"></textarea>
+                            </div>
+                        </div>
+                        <!--button登录按钮START-->
+                        <div class="form-group">
+                            <div class='col-sm-12 '>
+                                <button type="submit" class="btn btn-md btn-block btn-success" name="login-button">写入</button>
+                            </div>
+                        </div>
+                        <!--button登录按钮EDN-->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--右边end-->
+    </div>
+</div>
+
+
+</body>
+</html>
