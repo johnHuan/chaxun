@@ -25,7 +25,7 @@ return array(
     //2、PDO专用定义
     'DB_TYPE'=>'pdo',         //数据库类型
     'DB_USER'=>'root',          //用户名
-    'DB_PWD'=>'johnjohn',       //密码
+    'DB_PWD'=>'',       //密码
     'DB_PREFIX'=>'neu_',      //数据库表前缀
     'DB_DSN'=>'mysql:host=localhost;dbname=neu;charset=utf8',
 
